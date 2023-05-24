@@ -7,7 +7,7 @@ class SocketController {
     this.users = new Map();
   }
 
-  async handleConnection(socket, echo) {
+  async handleConnection(socket) {
     this.io.to(socket.id).emit("usersConnected", [...this.users.keys()]);
     this.users.set(socket.id, { clientes: [] });
     console.log(this.users);
